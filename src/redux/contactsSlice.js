@@ -7,26 +7,6 @@ const slice = createSlice({
   initialState: {
     contacts: { items: [], loading: false, error: false },
   },
-  // reducers: {
-  //   addContact: {
-  //     reducer: (state, action) => {
-  //       state.contacts.items.push(action.payload.contact);
-  //     },
-  //     prepare: (newContact) => {
-  //       const id = crypto.randomUUID();
-  //       return {
-  //         payload: {
-  //           contact: { newContact, id },
-  //         },
-  //       };
-  //     },
-  //   },
-  //   deleteContact: (state, action) => {
-  //     state.contacts.items = state.contacts.items.filter(
-  //       (contact) => contact.id !== action.payload
-  //     );
-  //   },
-  // },
   extraReducers: (builder) =>
     builder
       .addCase(fetchContacts.pending, (state) => {
@@ -59,11 +39,7 @@ const slice = createSlice({
           (contact) => contact.id !== action.payload.id
         );
       }),
-  // .addCase(),
 });
-
-// export const { addContact, deleteContact } = slice.actions;
-// export const { deleteContact } = slice.actions;
 
 export const selectContacts = (state) => state.contacts.contacts.items;
 
